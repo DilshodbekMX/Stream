@@ -10,23 +10,22 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-^++cgykntyg+75g0hu@(=^k4q_#=!$59xy%0lsmxti#m(3q*7v'
-SECURE_CROSS_ORIGIN_OPENER_POLICY=None
-CORS_ALLOWED_ORIGINS = [
-'*'
-]
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
-
-
+ALLOWED_HOSTS = []
+SECURE_CROSS_ORIGIN_OPENER_POLICY=None
+CORS_ORIGIN_ALLOW_ALL = True
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
@@ -39,6 +38,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'stream.urls'
